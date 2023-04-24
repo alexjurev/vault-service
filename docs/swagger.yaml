@@ -1,0 +1,62 @@
+swagger: "2.0"
+info:
+  description: Сервис хранения ключей
+  termsOfService: http://swagger.io/terms/
+  title: Сервис хранения ключей
+  version: "2.0"
+basePath: /
+host: localhost
+
+paths:
+  /objects/{key}:
+    put:
+      operationId: AddObject
+      description: Добавить объект в хранилище по ключу
+      consumes:
+        - text/plain
+      produces:
+        - text/plain
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: string
+        - description: Ключ
+          name: key
+          type: string
+          in: path
+          required: true
+        - description: Ключ
+          name: expires
+          type: integer
+          in: header
+      responses:
+        200:
+          description: OK
+        default:
+          description: Any Error
+          schema:
+            type: string
+    get:
+      operationId: FindObject
+      description: Получить объект из хранилища по ключу
+      consumes:
+        - text/plain
+      produces:
+        - text/plain
+      parameters:
+        - description: Ключ
+          name: key
+          type: string
+          in: path
+          required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+        default:
+          description: Any Error
+          schema:
+            type: string

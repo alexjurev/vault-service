@@ -1,0 +1,18 @@
+package endpoints
+
+import (
+	"github.com/go-openapi/runtime/middleware"
+
+	api{{ pascalize .Package }} "{{.GenCommon.TargetImportPath}}/{{ .RootPackage }}/operations{{ if gt (len .Tags) 0 }}/{{ .Package }}{{ end }}"
+)
+
+// {{ if .Tags }}{{ pascalize .Package }}{{ end }}{{ pascalize .Name }}Endpoint endpoint для ручки {{ .Path }}.
+// {{ .Description }}.
+func (e *Endpoints) {{ if .Tags }}{{ pascalize .Package }}{{ end }}{{ pascalize .Name }}Endpoint(
+    params api{{ pascalize .Package }}.{{ pascalize .Name }}Params{{ if .Authorized }},
+    principal {{ if not ( eq .Principal "interface{}" ) }}{{ .Principal }}{{else}}interface{}{{ end }}{{ end }},
+    ) middleware.Responder {
+    logger := e.logger.With(zap.String("endpoint", "{{ if .Tags }}{{ pascalize .Package }}{{ end }}{{ pascalize .Name }}Endpoint"))
+    // TODO implement
+	return middleware.NotImplemented("operation {{ .Package }} {{ pascalize .Name }} has not yet been implemented")
+}
