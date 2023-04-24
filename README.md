@@ -9,7 +9,9 @@ make build-img - сборка докер образа
 make run-img - запуск на портах 8040 и 3110 (дебаг)
 
 curl --location --request GET 'http://localhost:3110/live' 
+
 curl --location --request GET 'http://localhost:3110/ready'
+
 curl --location --request GET 'http://localhost:3110/metrics'
 
 
