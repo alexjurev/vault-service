@@ -25,5 +25,5 @@ curl --location --request PUT 'http://localhost:8040/objects/firstkey' \
 
 Получение ключа из хранилища
 
-curl --location --request GET 'http://localhost:8088/objects/firstkey2' \
+curl --location --request GET 'http://localhost:8040/objects/firstkey' \
 --header 'Content-Type: text/plain'
